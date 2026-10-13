@@ -13,6 +13,17 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // Demo app: client-only hydration from localStorage (store) and today-date
+      // hydration (attendance) legitimately call setState once after mount to avoid
+      // SSR/prerender Date reads and hydration mismatches. Event-handler id
+      // generation (Date.now/Math.random in submit handlers) is also wrongly
+      // flagged as impure render code by the React Compiler rule.
+      "react-hooks/set-state-in-effect": "off",
+      "react-hooks/purity": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
