@@ -4,7 +4,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { initials } from "@/lib/formatters";
 
-/* ---------- Button ---------- */
 type BtnVariant = "primary" | "secondary" | "outline" | "ghost" | "danger" | "success";
 type BtnSize = "sm" | "md" | "lg" | "icon";
 
@@ -33,7 +32,6 @@ export function Button({
   return <button className={cn(base, variants[variant], sizes[size], className)} {...props} />;
 }
 
-/* ---------- Card ---------- */
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return <div className={cn("bg-white border border-slate-200 rounded-xl shadow-[0_1px_2px_rgba(15,23,42,0.04)]", className)} {...props} />;
 }
@@ -50,12 +48,11 @@ export function CardDesc({ className, ...props }: React.HTMLAttributes<HTMLParag
   return <p className={cn("text-[13px] text-slate-500 mt-0.5", className)} {...props} />;
 }
 
-/* ---------- Input / Label / Textarea / Select ---------- */
 export function Label({ className, ...props }: React.LabelHTMLAttributes<HTMLLabelElement>) {
   return <label className={cn("block text-[13px] font-medium text-slate-700 mb-1.5", className)} {...props} />;
 }
 
-export function Input({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>) {
+export function Input({ className, ...props }: React.ComponentPropsWithRef<"input">) {
   return (
     <input
       className={cn(
@@ -91,12 +88,11 @@ export function Select({ className, ...props }: React.SelectHTMLAttributes<HTMLS
   );
 }
 
-export function FieldError({ message }: { message?: string }) {
+export function FieldError({ message, id }: { message?: string; id?: string }) {
   if (!message) return null;
-  return <p className="text-xs text-red-600 mt-1">{message}</p>;
+  return <p id={id} className="text-xs text-red-600 mt-1">{message}</p>;
 }
 
-/* ---------- Badge ---------- */
 export function Badge({
   tone = "slate",
   className,
@@ -119,7 +115,6 @@ export function Badge({
   );
 }
 
-/* ---------- Avatar ---------- */
 export function Avatar({ name, className }: { name: string; className?: string }) {
   return (
     <span
@@ -134,7 +129,6 @@ export function Avatar({ name, className }: { name: string; className?: string }
   );
 }
 
-/* ---------- Tabs ---------- */
 export function Tabs({
   tabs,
   value,
@@ -164,7 +158,6 @@ export function Tabs({
   );
 }
 
-/* ---------- Dialog ---------- */
 export function Dialog({
   open,
   onClose,
@@ -209,12 +202,10 @@ export function Dialog({
   );
 }
 
-/* ---------- Skeleton ---------- */
 export function Skeleton({ className }: { className?: string }) {
   return <div className={cn("animate-pulse rounded-md bg-slate-200/70", className)} />;
 }
 
-/* ---------- Separator ---------- */
 export function Separator({ className }: { className?: string }) {
   return <div className={cn("h-px bg-slate-200", className)} />;
 }

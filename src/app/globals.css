@@ -7,6 +7,16 @@
   --color-primary-500: #4f46e5;
   --color-primary-600: #4338ca;
   --color-primary-700: #3730a3;
+  --color-navy-700: #26345a;
+  --color-navy-800: #1b2647;
+  --color-navy-900: #121c38;
+  --color-navy-950: #0a1226;
+  --color-canvas: #fbfaf7;
+}
+
+.brand-panel-surface {
+  background-color: var(--color-navy-950);
+  background-image: radial-gradient(110rem 55rem at 82% -12%, rgba(38, 54, 92, 0.55) 0%, rgba(38, 54, 92, 0) 58%);
 }
 
 :root {
